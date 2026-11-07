@@ -1,8 +1,6 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu'))()
 
--- ==========================================
--- ⚙️ CORE STATE MANAGEMENT & TELEMETRY
--- ==========================================
+
 local Players = game:GetService("Players")
 local UserInputService = game:GetService("UserInputService")
 local RunService = game:GetService("RunService")
@@ -36,9 +34,7 @@ local selectedTargetPlayer = nil
 -- Performance Metrics
 local fpsValue, pingValue = 0, 0
 
--- ==========================================
--- 🛡️ FEATURE MANAGER (SAFETY & CLEANUP ON DEATH)
--- ==========================================
+´´
 local function cleanUpActiveVisuals()
     for obj, trans in pairs(originalTransparencies) do
         if obj and obj.Parent then pcall(function() obj.Transparency = trans end) end
@@ -76,9 +72,7 @@ end
 if localPlayer.Character then initializeCharacterTethers(localPlayer.Character) end
 localPlayer.CharacterAdded:Connect(initializeCharacterTethers)
 
--- ==========================================
--- 📊 BACKGROUND ENFORCEMENT LOOP & DIAGNOSTICS
--- ==========================================
+
 task.spawn(function()
     while true do
         local lastTime = os.clock()
@@ -109,9 +103,6 @@ task.spawn(function()
     end
 end)
 
--- ==========================================
--- 🪟 WINDOW INITIALIZATION (FIXED KEY SYSTEM)
--- ==========================================
 local Window = Rayfield:CreateWindow({
    Name = "SleepyHub --- Universal V2",
    Icon = 0, 
@@ -140,11 +131,10 @@ local Window = Rayfield:CreateWindow({
       FileName = "SleepyHubKey", 
       SaveKey = true, 
       GrabKeyFromSite = false, 
-      Key = {"sleepyisdaddy"} -- Correctly formatted key array string
-   }
+      Key = {"sleepyisdaddy"} 
 })
 
--- Unique Tab Naming Registration (Fixed duplicate variable crash)
+
 local MovementTab = Window:CreateTab("Movement", nil) 
 local VisualsTab = Window:CreateTab("ESP & Render", nil)
 local TargetTab = Window:CreateTab("Targeting List", nil)
@@ -158,9 +148,7 @@ Rayfield:Notify({
    Duration = 7,
    Image = 4483362458,
 })
--- ==========================================
--- 🏃 MOVEMENT TAB CONTROLS
--- ==========================================
+
 MovementTab:CreateSection("--- Speed Adjustments ---")
 
 MovementTab:CreateSlider({
@@ -317,9 +305,7 @@ MovementTab:CreateToggle({
        end)
    end,
 })
--- ==========================================
--- 🧱 ESP & VISUAL ENVIRONMENT MODULE
--- ==========================================
+
 VisualsTab:CreateSection("--- Perspective Adjustments ---")
 
 VisualsTab:CreateSlider({
@@ -431,10 +417,8 @@ VisualsTab:CreateToggle({
    end,
 })
 
--- ==========================================
--- 👤 SELECTIVE PLAYER TARGETING MODULE
--- ==========================================
-TargetTab:CreateSection("--- Player Tracker Framework ---")
+
+TargetTab:CreateSection("--- Player Tracker  ---")
 
 local playerDropdownList = {}
 for _, p in pairs(Players:GetPlayers()) do
@@ -485,9 +469,7 @@ TargetTab:CreateToggle({
        end
    end,
 })
--- ==========================================
--- 🎹 AUTOCLICKER & MACROS ENGINE
--- ==========================================
+
 local autoclickerEnabled = false
 local clickDelay = 0.1
 
@@ -609,9 +591,7 @@ for i = 1, 5 do
     })
 end
 
--- ==========================================
--- 🕒 TELEMETRY & SYSTEM PERFORMANCE
--- ==========================================
+
 TelemetryTab:CreateSection("--- Live Diagnostic Data ---")
 
 local OverlayParagraph = TelemetryTab:CreateParagraph({
@@ -701,8 +681,8 @@ TelemetryTab:CreateDropdown({
 })
 
 CreditTab:CreateParagraph({
-    Title = "📜 COMMUNITY SHOUTOUTS RECOGNITION:", 
-    Content = "Huge shoutout to YT @TheRoPlayer for initial layout inspiration. Massive credit to natedadev for scripting help. Deep appreciation to Claude Code AI modules for optimization. And finally, thank you for running our script!"
+    Title = " COMMUNITY SHOUTOUTS RECOGNITION:", 
+    Content = "fuck you"
 })
 
 Rayfield:LoadConfiguration()
